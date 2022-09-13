@@ -11,10 +11,12 @@ export default function Video() {
     const {videoId} = useParams()
     const {video,isError,isLoading,error} = useSelector(state=>state.video)
     const dispatch=useDispatch();
+
     useEffect(()=>{
         dispatch(fetchVideo(videoId))
 
     },[dispatch,videoId])
+    
     const {link,title,tags,id}= video || {};
 
     let content=null
